@@ -112,14 +112,20 @@ Le dossier `dist/` contient l'application prête pour le déploiement.
 
 Le projet est déjà configuré pour se déployer automatiquement sur GitHub Pages via GitHub Actions.
 
-**Configuration** :
+**Activation (une seule fois)** :
 1. Le workflow est déjà configuré dans `.github/workflows/deploy.yml`
-2. Activer GitHub Pages dans les paramètres du repository :
-   - Repository → Settings → Pages
-   - Source : "GitHub Actions"
-3. **Push** vers `main` déclenche automatiquement le déploiement
+2. Activer GitHub Pages :
+   - **GitHub** → **Settings** → **Pages**
+   - **Source** : choisir **"GitHub Actions"**
+   - Cliquer sur **"Save"**
+3. Le déploiement se fait automatiquement via GitHub Actions
 
-L'application sera accessible sur : `https://alpha-dklg.github.io/tp-dbnet/`
+**Déploiement automatique** :
+- Chaque push vers `main` déclenche automatiquement le déploiement
+- Le workflow construit l'application avec Vite et la déploie sur GitHub Pages
+- Vérification de l'état du déploiement : **Actions** → **Deploy to GitHub Pages**
+
+L'application est accessible sur : `https://alpha-dklg.github.io/tp-dbnet/`
 
 ## 📝 Utilisation
 
