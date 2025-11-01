@@ -63,7 +63,24 @@ ort.env.logLevel = 'warning';
 // Configuration du modèle
 const MODEL_INPUT_NAME = 'x';
 const MODEL_OUTPUT_NAME = 'fetch_name_0';
-const MODEL_PATH = '/models/det_model.onnx';
+
+// Déterminer le chemin de base dynamiquement depuis l'URL du worker
+// En dev: '/' et en prod (GitHub Pages): '/tp-dbnet/'
+const getBasePath = () => {
+  // Dans un worker, on peut utiliser self.location.pathname
+  // Vite transforme import.meta.url correctement pour les workers
+  const pathname = (self as any).location?.pathname || '';
+  // Si on est dans un sous-dossier GitHub Pages
+  if (pathname.includes('/tp-dbnet/')) {
+    return '/tp-dbnet';
+  }
+  return '';
+};
+
+const BASE_PATH = getBasePath();
+const MODEL_PATH = `${BASE_PATH}/models/det_model.onnx`;
+
+console.log('Worker initialized with MODEL_PATH:', MODEL_PATH);
 
 // Paramètres de preprocessing
 const RESIZE_MAX_SIDE = 960;
