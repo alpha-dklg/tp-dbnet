@@ -80,8 +80,6 @@ const getBasePath = () => {
 const BASE_PATH = getBasePath();
 const MODEL_PATH = `${BASE_PATH}/models/det_model.onnx`;
 
-console.log('Worker initialized with MODEL_PATH:', MODEL_PATH);
-
 // Paramètres de preprocessing
 const RESIZE_MAX_SIDE = 960;
 const DBNET_PADDING_MULTIPLE = 32; // DBNet attend des dimensions multiples de 32
